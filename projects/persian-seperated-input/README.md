@@ -1,7 +1,7 @@
 # PersianSeperatedInput
 ![GIPHY](https://media.giphy.com/media/otDJKYuVeF0wl9QZPc/giphy.gif)
 
-Create seperated input which support persian numbers for iphone numeric keyboard
+Create seperated input which support persian numbers for iphone numeric keyboard.
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.13.
 
 ## Installation
