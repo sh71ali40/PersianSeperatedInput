@@ -14,7 +14,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "persian-seperated-input": [
+        "dist/persian-seperated-input/persian-seperated-input",
+        "dist/persian-seperated-input"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

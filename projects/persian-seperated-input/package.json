@@ -1,0 +1,20 @@
+{
+  "name": "persian-seperated-input",
+  "version": "0.0.4",
+  "description": "Create seperated input which support persian numbers for iphone numeric keyboard",
+  "peerDependencies": {
+    "@angular/common": "^9.1.13",
+    "@angular/core": "^9.1.13"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "keywords": [
+    "persian",
+    "angular",
+    "numbers",
+    "input",
+    "psi-input",
+    "psi input"
+  ]
+}
