@@ -64,14 +64,15 @@ export class PersianSeperatedInputComponent implements OnInit {
     (<HTMLInputElement>input.nativeElement).select();
   }
   ngAfterViewInit() {
-    console.log(this.inputElements);
+    // console.log(this.inputElements);
     if(this.FirstInputSelected) {
       (this.inputElements._results[0]).nativeElement.focus()
+
     }
   }
 
   onKeyUp(index,event) {
-    console.log('index',index)
+    // console.log('index',index)
 
     let previousInput = this.inputElements._results[index-1];
     let nextInput = this.inputElements._results[index+1];
