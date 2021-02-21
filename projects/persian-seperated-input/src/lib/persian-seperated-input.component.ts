@@ -1,13 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChildren } from '@angular/core';
+// [value]="Count[i]"
 
 @Component({
   selector: 'psi-input',
   template: `
-
     <input
     *ngFor="let item of Count; let i = index"
     [value]="Count[i]"
     (keyup)="onKeyUp(i,$event)"
+    (click)="onInputClick(i)"
     #inputElement
     oninput="javascript:this.value =  this.value.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));"
     maxlength="1"
@@ -31,6 +32,7 @@ export class PersianSeperatedInputComponent implements OnInit {
   @Output() onInputChange: EventEmitter<any> = new EventEmitter();
 
   Count;
+
   @Input() InputValue='';
   @Input() FirstInputSelected = false;
   constructor() {
@@ -39,15 +41,30 @@ export class PersianSeperatedInputComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.InputValue,this.digitOnly)
-    this.Count = new Array(this.length);
-    for (let index = 0; index < this.Count.length; index++) {
-      this.Count[index]= this.InputValue.charAt(index)
-    }
+
+   this.BindValue();
 
     // console.log(this.Count);
     // this.Count = this.Value.split('').slice(0,this.length);
   }
 
+  BindValue() {
+    this.Count = new Array(this.length);
+    for (let index = 0; index < this.Count.length; index++) {
+      this.Count[index]= this.InputValue.charAt(index)
+    }
+  }
+  ngOnChanges(changes) {
+    console.log('changes',changes.InputValue.currentValue);
+    this.InputValue =changes.InputValue.currentValue;
+    this.BindValue();
+  }
+
+
+  onInputClick(index){
+    let input = this.inputElements._results[index];
+    (<HTMLInputElement>input.nativeElement).select();
+  }
   ngAfterViewInit() {
     console.log(this.inputElements);
     if(this.FirstInputSelected) {
@@ -56,7 +73,7 @@ export class PersianSeperatedInputComponent implements OnInit {
   }
 
   onKeyUp(index,event) {
-
+    console.log('index',index)
 
     let previousInput = this.inputElements._results[index-1];
     let nextInput = this.inputElements._results[index+1];

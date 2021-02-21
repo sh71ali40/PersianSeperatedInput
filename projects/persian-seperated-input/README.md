@@ -63,7 +63,7 @@ Add component to your page:
 <td>string</td>
 <td>false</td>
 <td>false</td>
-<td>set value into inputs</td>
+<td>set new value into inputs</td>
 </tr>
 <tr>
 <td>FirstInputSelected</td>
