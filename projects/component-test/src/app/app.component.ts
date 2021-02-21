@@ -7,11 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'component-test';
-  inputValue = "123";
+  inputValue = "23";
   onInputChange(event) {
     console.log('event',event);
+    this.inputValue = event;
   }
   onClearClick(){
+    console.log(this.inputValue)
     this.inputValue = '';
+    console.log(this.inputValue)
   }
 }

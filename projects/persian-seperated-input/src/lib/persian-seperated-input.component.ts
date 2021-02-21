@@ -40,12 +40,10 @@ export class PersianSeperatedInputComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.InputValue,this.digitOnly)
+
 
    this.BindValue();
 
-    // console.log(this.Count);
-    // this.Count = this.Value.split('').slice(0,this.length);
   }
 
   BindValue() {
@@ -54,11 +52,11 @@ export class PersianSeperatedInputComponent implements OnInit {
       this.Count[index]= this.InputValue.charAt(index)
     }
   }
-  ngOnChanges(changes) {
-    console.log('changes',changes.InputValue.currentValue);
-    this.InputValue =changes.InputValue.currentValue;
-    this.BindValue();
-  }
+  // ngOnChanges(changes) {
+  //   console.log('changes',changes.InputValue);
+  //   this.InputValue =changes.InputValue.currentValue;
+  //   this.BindValue();
+  // }
 
 
   onInputClick(index){
