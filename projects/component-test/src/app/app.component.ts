@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'component-test';
-
+  inputValue = "";
   onInputChange(event) {
     console.log('event',event);
   }

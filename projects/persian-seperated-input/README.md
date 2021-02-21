@@ -58,6 +58,20 @@ Add component to your page:
 <td>false</td>
 <td>show numeric keyboard on mobile devices</td>
 </tr>
+<tr>
+<td>InputValue</td>
+<td>string</td>
+<td>false</td>
+<td>false</td>
+<td>set value into inputs</td>
+</tr>
+<tr>
+<td>FirstInputSelected</td>
+<td>boolean</td>
+<td>false</td>
+<td>false</td>
+<td>first input will be selected</td>
+</tr>
 
 </table>
 

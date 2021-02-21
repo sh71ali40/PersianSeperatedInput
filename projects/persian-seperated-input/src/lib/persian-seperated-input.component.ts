@@ -4,7 +4,14 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChildren } from '@a
   selector: 'psi-input',
   template: `
 
-    <input *ngFor="let item of Count; let i = index" (keyup)="onKeyUp(i,$event)" #inputElement oninput="javascript:this.value =  this.value.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));" maxlength="1"  [type]="!digitOnly?'text':'tel'"  />
+    <input
+    *ngFor="let item of Count; let i = index"
+    [value]="Count[i]"
+    (keyup)="onKeyUp(i,$event)"
+    #inputElement
+    oninput="javascript:this.value =  this.value.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));"
+    maxlength="1"
+    [type]="!digitOnly?'text':'tel'"  />
   `,
   styles: [
     `input {
@@ -24,12 +31,28 @@ export class PersianSeperatedInputComponent implements OnInit {
   @Output() onInputChange: EventEmitter<any> = new EventEmitter();
 
   Count;
-  Value='';
+  @Input() InputValue='';
+  @Input() FirstInputSelected = false;
   constructor() {
-    this.Count = new Array(this.length)
+    // this.Count = new Array(this.length)
   }
 
   ngOnInit(): void {
+    console.log(this.InputValue,this.digitOnly)
+    this.Count = new Array(this.length);
+    for (let index = 0; index < this.Count.length; index++) {
+      this.Count[index]= this.InputValue.charAt(index)
+    }
+
+    // console.log(this.Count);
+    // this.Count = this.Value.split('').slice(0,this.length);
+  }
+
+  ngAfterViewInit() {
+    console.log(this.inputElements);
+    if(this.FirstInputSelected) {
+      (this.inputElements._results[0]).nativeElement.focus()
+    }
   }
 
   onKeyUp(index,event) {
@@ -37,22 +60,26 @@ export class PersianSeperatedInputComponent implements OnInit {
 
     let previousInput = this.inputElements._results[index-1];
     let nextInput = this.inputElements._results[index+1];
+
     if(event.key=='Backspace') {
 
       //console.log('value',this.Value.substring(0,index),this.Value.substring(index+1, this.Value.length));
-      this.Value = this.Value.substring(0,index) + this.Value.substring(index+1, this.Value.length);
+      this.InputValue = this.InputValue.substring(0,index) + this.InputValue.substring(index+1, this.InputValue.length);
       if(previousInput) {
         previousInput.nativeElement.focus();
         (<HTMLInputElement>previousInput.nativeElement).select();
       }
     } else {
-      this.Value = this.Value.substr(0, index) + event.target.value + this.Value.substr(index+1);
+      this.InputValue = this.InputValue.substr(0, index) + event.target.value + this.InputValue.substr(index+1);
       if(nextInput) {
         nextInput.nativeElement.focus();
         (<HTMLInputElement>nextInput.nativeElement).select();
       }
     }
-    // console.log('value',this.Value);
-    this.onInputChange.emit(this.Value);
+
+
+    //console.log(this.Count);
+
+    this.onInputChange.emit(this.InputValue);
   }
 }
