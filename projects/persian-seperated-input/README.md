@@ -35,6 +35,24 @@ Add component to your page:
 ```
   <psi-input (onInputChange)="onInputChange($event)" [digitOnly]="true"></psi-input>
 ```
+
+<b>Updating component value using setValue method</b>
+
+
+```
+  <psi-input #myInput (onInputChange)="onInputChange($event)"
+  [digitOnly]="true"></psi-input>
+
+  <button (click)="onClearClick()">clear</button>
+```
+
+then in your component reference using @ViewChild and call setValue method.
+```
+ @ViewChild('myInput') myInput:any;
+  onClearClick(){
+    this.myInput.setValue('');
+  }
+```
 ## API
 <table>
 <tr>

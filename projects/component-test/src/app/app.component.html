@@ -1,6 +1,8 @@
 <div style="padding: 10px;">
   <h1 style="color: red;">persian-seperated-input</h1>
-  <psi-input (onInputChange)="onInputChange($event)" [FirstInputSelected]="true" [InputValue]="inputValue" [digitOnly]="true"></psi-input>
+  <psi-input #myInput (onInputChange)="onInputChange($event)"
+  [FirstInputSelected]="true"
+  [digitOnly]="true"></psi-input>
 
   <button (click)="onClearClick()">clear</button>
 </div>
