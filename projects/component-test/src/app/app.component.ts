@@ -1,3 +1,4 @@
+import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,13 +9,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'component-test';
   inputValue = "";
+
+  @ViewChild('myInput') myInput:any;
   onInputChange(event) {
     console.log('event',event);
     this.inputValue = event;
   }
   onClearClick(){
-    console.log(this.inputValue)
-    this.inputValue = '';
-    console.log(this.inputValue)
+
+
+    this.myInput.setValue('');
+
   }
 }
