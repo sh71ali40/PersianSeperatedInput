@@ -3,6 +3,7 @@
 
 Create seperated input which support persian numbers for iphone numeric keyboard.
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.13.
+For more information follow this [link](https://www.npmjs.com/package/persian-seperated-input)
 
 ## Installation
 > npm install --save persian-seperated-input
