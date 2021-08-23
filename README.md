@@ -1,6 +1,6 @@
 # MyComponents
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6. for more information follow this [link](https://www.npmjs.com/package/persian-seperated-input).
 
 ## Development server
 
